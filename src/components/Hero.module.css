@@ -22,7 +22,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 831px;
+  /* sized from the card like the source: desktop card − 409px */
+  width: max(calc(100% - 409px), calc(100% / 1.49));
   height: 526px;
   transform: translate(-50%, -50%) scale(var(--zoom, 1.5));
   background: url('/images/hero.png') center / 100% 100% no-repeat;
@@ -85,7 +86,7 @@
     max-width: none;
   }
   .bg {
-    width: 619px;
+    width: calc((100% - 254px) * 1.2);
     height: 700px;
   }
   .title {
@@ -102,7 +103,7 @@
     padding: 120px 20px;
   }
   .bg {
-    width: 288px;
+    width: calc((100% - 118px) * 1.2);
     height: 700px;
   }
   .title h1 {
