@@ -1,0 +1,187 @@
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  overflow: clip;
+}
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.intro {
+  max-width: 500px;
+}
+
+.viewport {
+  width: 100%;
+  height: 346px;
+  border-radius: 10px;
+  overflow: clip;
+  -webkit-mask-image: radial-gradient(52% 177%, #000 0%, rgba(0, 0, 0, 0.8) 90.0901%, rgba(0, 0, 0, 0) 100%);
+  mask-image: radial-gradient(52% 177%, #000 0%, rgba(0, 0, 0, 0.8) 90.0901%, rgba(0, 0, 0, 0) 100%);
+}
+.track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  /* 5 cards × (372 + 10) = 1910px per loop at 50px/s */
+  animation: marquee 38.2s linear infinite;
+}
+.list {
+  display: flex;
+  gap: 10px;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-1910px);
+  }
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  width: 372px;
+  height: 346px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+}
+.hoverBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  pointer-events: none;
+}
+.card:hover .hoverBg {
+  opacity: 1;
+}
+.quote,
+.bottom {
+  position: relative;
+}
+.quote {
+  transition: opacity 0.4s var(--ease);
+  text-wrap: wrap;
+  font-family: var(--font-quote);
+  font-size: 16px;
+  line-height: 1.2;
+  color: #000;
+  opacity: 0.8;
+}
+.card:hover .quote {
+  opacity: 1;
+}
+.bottom {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.person {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.avatar {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.avatar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid #fff;
+  border-radius: inherit;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.name {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.role {
+  transition: opacity 0.4s var(--ease);
+  text-wrap: wrap;
+  font-family: var(--font-quote);
+  font-size: 16px;
+  line-height: 1.2;
+  color: #000;
+  opacity: 0.5;
+}
+.card:hover .role {
+  opacity: 0.7;
+}
+/* "Read on X" pill that appears on hover */
+.readOn {
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--c-ink);
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 16.8px;
+  color: #ebe8e4;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s var(--ease),
+    transform 0.4s var(--spring);
+}
+.card:hover .readOn,
+.readOn:focus-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+@media (max-width: 1199px) {
+  .name :global(.t-h5) {
+    font-size: 18px;
+  }
+}
+@media (max-width: 809px) {
+  .inner {
+    gap: 20px;
+  }
+  .card {
+    width: 343px;
+  }
+  .track {
+    /* 5 × (343 + 10) = 1765px */
+    animation-name: marqueePhone;
+    animation-duration: 35.3s;
+  }
+}
+@keyframes marqueePhone {
+  to {
+    transform: translateX(-1765px);
+  }
+}

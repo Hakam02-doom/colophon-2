@@ -1,0 +1,159 @@
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.intro {
+  max-width: 420px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 420px;
+}
+
+/* One element per card that morphs between the closed tile and the open card */
+.card {
+  position: relative;
+  flex: 0 0 284px;
+  height: 420px;
+  border-radius: 12px;
+  background: var(--c-surface);
+  overflow: clip;
+  outline: none;
+  transition:
+    flex-basis 0.5s var(--spring),
+    height 0.5s var(--spring),
+    background-color 0.4s var(--ease),
+    border-radius 0.5s var(--spring),
+    box-shadow 0.4s var(--ease);
+}
+.card[data-open='true'] {
+  flex-basis: 352px;
+  height: 440px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 16px 0 var(--c-shadow);
+}
+
+.closed,
+.opened {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: opacity 0.35s var(--ease);
+}
+.closed {
+  padding: 20px 20px 40px;
+  opacity: 1;
+}
+.card[data-open='true'] .closed {
+  opacity: 0;
+}
+.opened {
+  padding: 8px;
+  opacity: 0;
+  pointer-events: none;
+}
+.card[data-open='true'] .opened {
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0.1s;
+}
+
+.num {
+  font-family: var(--font-display);
+  font-size: 52px;
+  line-height: 1.05;
+  font-weight: 500;
+  color: var(--c-faint);
+}
+.closedImg {
+  width: 244px;
+  height: 184px;
+  overflow: hidden;
+}
+.closedImg img,
+.openImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.openImg {
+  width: 336px;
+  height: 214px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.openContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 1199px) {
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    height: auto;
+  }
+  .card,
+  .card[data-open='true'] {
+    flex: none;
+    height: auto;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: none;
+  }
+  .closed {
+    display: none;
+  }
+  .opened {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    justify-content: center;
+  }
+  .openImg {
+    width: 100%;
+    height: 229px;
+  }
+  .openContent :global(.t-h3) {
+    font-size: 26px;
+  }
+}
+@media (max-width: 809px) {
+  .inner {
+    gap: 20px;
+  }
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .openImg {
+    height: 218px;
+  }
+  .openContent :global(.t-h3) {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,194 @@
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  overflow: clip;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.titleBadge {
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.intro {
+  max-width: 420px;
+}
+
+.plans {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.tabsRow {
+  display: flex;
+  justify-content: flex-end;
+}
+.tabs {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 8px;
+  background: var(--c-surface);
+  overflow: hidden;
+}
+.tabBg {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: 83px;
+  border-radius: 8px;
+  background: #fff;
+  transition:
+    left 0.4s var(--spring),
+    width 0.4s var(--spring);
+}
+.tab {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 19.2px;
+  color: var(--c-text);
+  transition: color 0.3s var(--ease);
+}
+.tab[data-active='true'] {
+  color: var(--c-ink);
+}
+.save {
+  font-weight: 500;
+  color: var(--c-ink);
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.card {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 565px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--c-surface);
+  overflow: hidden;
+}
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--c-line);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.featured {
+  background: none;
+}
+.cardBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card > *:not(.cardBg) {
+  position: relative;
+}
+.planName {
+  font-style: italic;
+}
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.desc {
+  width: 341px;
+  flex-shrink: 0;
+  height: 38px;
+  overflow: clip;
+}
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+.feature .t-body,
+.feature > span:last-child {
+  color: var(--c-ink);
+}
+.square {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background: var(--c-accent);
+}
+.feature[data-included='false'] .square {
+  opacity: 0;
+}
+.feature[data-included='false'] > span:last-child {
+  opacity: 0.6;
+}
+
+@media (max-width: 1199px) {
+  .head {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+  .titleBadge {
+    align-items: center;
+  }
+  .tabsRow {
+    justify-content: center;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .card {
+    flex: none;
+    width: 100%;
+    height: 554px;
+  }
+  .planName {
+    font-size: 20px;
+  }
+  .amount {
+    font-size: 26px;
+  }
+}
+@media (max-width: 809px) {
+  .titleBadge {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .card {
+    height: 552px;
+  }
+  .amount {
+    font-size: 24px;
+  }
+}

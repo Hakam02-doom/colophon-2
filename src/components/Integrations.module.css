@@ -1,0 +1,126 @@
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  overflow: clip;
+}
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.titleBadge {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.intro {
+  max-width: 420px;
+}
+
+.animation {
+  width: 100%;
+  max-width: 800px;
+  height: 227px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(50% 122%, #000 0%, rgba(0, 0, 0, 0.8) 80.6306%, rgba(0, 0, 0, 0) 100%);
+  mask-image: radial-gradient(50% 122%, #000 0%, rgba(0, 0, 0, 0.8) 80.6306%, rgba(0, 0, 0, 0) 100%);
+}
+.row {
+  height: 96px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+.list {
+  display: flex;
+  gap: 20px;
+}
+/* 8 icons × (96 + 20) = 928px per loop at 20px/s */
+.toLeft {
+  animation: toLeft 46.4s linear infinite;
+}
+.toRight {
+  animation: toRight 46.4s linear infinite;
+}
+@keyframes toLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-928px);
+  }
+}
+@keyframes toRight {
+  from {
+    transform: translateX(-928px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.icon {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(235, 232, 228, 0.6);
+  overflow: clip;
+}
+
+@media (max-width: 809px) {
+  .inner {
+    gap: 20px;
+  }
+  .row {
+    height: 64px;
+  }
+  .icon {
+    width: 64px;
+    height: 64px;
+  }
+  .icon img {
+    width: 64px;
+    height: 64px;
+  }
+  /* 8 × (64 + 20) = 672px per loop */
+  .toLeft {
+    animation-name: toLeftPhone;
+    animation-duration: 33.6s;
+  }
+  .toRight {
+    animation-name: toRightPhone;
+    animation-duration: 33.6s;
+  }
+}
+@keyframes toLeftPhone {
+  to {
+    transform: translateX(-672px);
+  }
+}
+@keyframes toRightPhone {
+  from {
+    transform: translateX(-672px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

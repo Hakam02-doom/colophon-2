@@ -1,0 +1,76 @@
+.section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+}
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 1240px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  overflow: clip;
+}
+/* stretched painting anchored left and overflowing right, like the source */
+.image {
+  position: absolute;
+  top: -1px;
+  bottom: 1px;
+  left: -1px;
+  width: 1729px;
+  z-index: 1;
+  background: url('/images/cta.png') left center / 100% 100% no-repeat;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--c-ink);
+  opacity: 0.25;
+}
+.title {
+  position: relative;
+  z-index: 2;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.heading {
+  text-wrap: wrap;
+  width: 660px;
+  color: #fff;
+}
+.heading em {
+  font-weight: 400;
+}
+.sub {
+  max-width: 500px;
+  color: #fff;
+}
+
+@media (max-width: 1199px) {
+  .section {
+    padding: 40px 20px;
+  }
+  .heading {
+    font-size: 44px;
+    width: 100%;
+  }
+  .title {
+    max-width: 660px;
+  }
+}
+@media (max-width: 809px) {
+  .heading {
+    font-size: 32px;
+  }
+  .title {
+    padding: 0 16px;
+  }
+}

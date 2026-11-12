@@ -1,0 +1,82 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.primary {
+  background: var(--c-ink);
+  color: #fff;
+}
+.secondary {
+  background: #fff;
+  color: var(--c-ink);
+}
+.block {
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  padding: 4px 12px 4px 4px;
+}
+
+.square {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 4px;
+  background: var(--c-accent);
+  overflow: hidden;
+}
+/* Two arrows side by side; the right one is visible at rest. */
+.arrows {
+  display: flex;
+  width: 48px;
+  margin-right: 6px;
+  transform: translateX(0);
+  transition: transform 0.45s var(--spring);
+}
+.arrow {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background: var(--c-ink);
+  -webkit-mask: url('/icons/arrow.svg') center / 100% 100% no-repeat;
+  mask: url('/icons/arrow.svg') center / 100% 100% no-repeat;
+}
+.button:hover .arrows {
+  transform: translateX(24px);
+}
+
+.text {
+  display: block;
+  height: 17px;
+  overflow: hidden;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 16.8px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.roll {
+  display: flex;
+  flex-direction: column;
+  opacity: 0.9;
+  transition: transform 0.45s var(--spring);
+}
+.roll > span {
+  display: block;
+  height: 17px;
+}
+.button:hover .roll {
+  transform: translateY(-17px);
+}

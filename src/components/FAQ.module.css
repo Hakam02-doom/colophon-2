@@ -1,0 +1,145 @@
+.section {
+  flex-direction: row;
+  justify-content: center;
+}
+.inner {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+}
+.mosaic {
+  position: absolute;
+  left: 0;
+  top: 304px;
+  width: 531px;
+  height: 125px;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+.left {
+  position: relative;
+  flex: 0 0 600px;
+  height: 238px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.titleBadge {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.list {
+  flex: 0 0 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.item {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--c-surface);
+}
+.question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.question > :first-child {
+  flex: 1;
+}
+.icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.plus,
+.close {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition:
+    opacity 0.3s var(--ease),
+    transform 0.4s var(--spring);
+}
+.close {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+.item[data-open='true'] .plus {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+.item[data-open='true'] .close {
+  opacity: 1;
+  transform: none;
+}
+.answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition:
+    grid-template-rows 0.45s var(--spring),
+    margin-top 0.45s var(--spring);
+}
+.answer > div {
+  overflow: hidden;
+}
+.item[data-open='true'] .answer {
+  grid-template-rows: 1fr;
+  margin-top: 20px;
+}
+
+@media (max-width: 1199px) {
+  .left,
+  .list {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .left {
+    height: 217px;
+    justify-content: flex-start;
+  }
+  .mosaic {
+    top: 315.8px;
+    width: 405px;
+  }
+  .question :global(.t-h5) {
+    font-size: 18px;
+  }
+}
+@media (max-width: 809px) {
+  .section {
+    padding-bottom: 120px;
+  }
+  .inner {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .left,
+  .list {
+    flex: none;
+    width: 100%;
+    height: auto;
+  }
+  .mosaic {
+    top: auto;
+    bottom: -135px;
+    width: calc(100% - 2px);
+  }
+  .question :global(.t-h5) {
+    font-size: 18px;
+  }
+}
