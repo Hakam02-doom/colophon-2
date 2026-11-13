@@ -26,7 +26,7 @@
   width: max(calc(100% - 409px), calc(100% / 1.49));
   height: 526px;
   transform: translate(-50%, -50%) scale(var(--zoom, 1.5));
-  background: url('/images/hero.png') center / 100% 100% no-repeat;
+  background: url('/images/hero.jpg') center / 100% 100% no-repeat;
   will-change: transform;
 }
 .overlay {
@@ -34,6 +34,15 @@
   inset: 0;
   background: var(--c-ink);
   opacity: 0.15;
+}
+/* Soft scrim behind the headline so white text holds on bright paintings. */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse 36% 30% at 50% 52%, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
 }
 .title {
   position: relative;

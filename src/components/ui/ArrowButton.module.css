@@ -80,3 +80,18 @@
 .button:hover .roll {
   transform: translateY(-17px);
 }
+
+/* Black / white scheme: primary = black pill, white square, black arrow;
+   secondary = white pill, black square, white arrow. */
+.primary .square {
+  background: #fff;
+}
+.primary .arrow {
+  background: #000;
+}
+.secondary .square {
+  background: #000;
+}
+.secondary .arrow {
+  background: #fff;
+}

@@ -64,7 +64,7 @@ function Card({ r }: { r: (typeof reviews)[number] }) {
         </figcaption>
         <a href={r.link} className={styles.readOn} target="_blank" rel="noreferrer" aria-label={`Read ${r.name}'s post on X`}>
           <span>Read on</span>
-          <MaskIcon src="/icons/x.svg" size={14} color="#ebe8e4" />
+          <MaskIcon src="/icons/x.svg" size={14} color="#ebebeb" />
         </a>
       </div>
     </figure>

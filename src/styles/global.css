@@ -58,16 +58,17 @@
   --font-body: 'Geist', sans-serif;
   --font-quote: 'Inter', sans-serif;
 
-  --c-bg: #f7f7f4;
-  --c-surface: #eeede6;
-  --c-ink: #251f19;
-  --c-text: #68615a;
-  --c-muted: #948b81;
-  --c-faint: #e4e0dd;
-  --c-line: #ddd8d3;
-  --c-dash: #d4cdc7;
-  --c-shadow: #ebe8e4;
-  --c-accent: #f48d16;
+  /* Palette: black is primary, white is secondary; greys are neutral tints between them. */
+  --c-bg: #ffffff;
+  --c-surface: #f2f2f2;
+  --c-ink: #000000;
+  --c-text: #5e5e5e;
+  --c-muted: #8c8c8c;
+  --c-faint: #e5e5e5;
+  --c-line: #dedede;
+  --c-dash: #d4d4d4;
+  --c-shadow: #ebebeb;
+  --c-accent: #000000;
 
   --ease: cubic-bezier(0.44, 0, 0.56, 1);
   --spring: cubic-bezier(0.25, 1, 0.5, 1);

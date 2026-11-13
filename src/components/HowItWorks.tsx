@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { SectionHeading } from './ui/SectionHeading'
 import styles from './HowItWorks.module.css'
@@ -6,27 +6,14 @@ import styles from './HowItWorks.module.css'
 const tabs = ['Write and review', 'Publish a release', 'Prove it was seen']
 
 /**
- * Three looping product demos. The source animates an SVG frame by frame;
- * here each demo is a recorded, seamlessly looping 2x video.
+ * Three product screens, one per step. The active screen fades in and
+ * drifts slowly so the panel still feels alive without a video.
  */
 export function HowItWorks() {
   const [active, setActive] = useState(0)
-  const videos = useRef<(HTMLVideoElement | null)[]>([])
-  // phones get the source's separate, tighter-cropped mobile animations
+  // phones get a tighter crop of each screen
   const phone = useMediaQuery('(max-width: 809px)')
-  const dir = phone ? '/videos/mobile' : '/videos'
-
-  useEffect(() => {
-    videos.current.forEach((v, i) => {
-      if (!v) return
-      if (i === active) {
-        v.currentTime = 0
-        void v.play().catch(() => {})
-      } else {
-        v.pause()
-      }
-    })
-  }, [active, phone])
+  const dir = phone ? '/images/how/mobile' : '/images/how'
 
   return (
     <section className="section">
@@ -53,19 +40,12 @@ export function HowItWorks() {
           </div>
           <div className={styles.screen} role="tabpanel" aria-label={tabs[active]}>
             {tabs.map((t, i) => (
-              <video
+              <img
                 key={t}
-                ref={(el) => {
-                  videos.current[i] = el
-                }}
-                src={`${dir}/how-${i + 1}.mp4`}
-                poster={`${dir}/how-${i + 1}-poster.jpg`}
+                src={`${dir}/how-${i + 1}.jpg`}
+                alt=""
                 data-active={active === i}
-                muted
-                loop
-                playsInline
-                autoPlay={i === 0}
-                preload={i === 0 ? 'auto' : 'metadata'}
+                loading={i === 0 ? 'eager' : 'lazy'}
                 aria-hidden={active !== i}
               />
             ))}

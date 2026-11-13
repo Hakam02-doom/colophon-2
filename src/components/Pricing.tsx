@@ -132,7 +132,7 @@ export function Pricing() {
           <div className={styles.row}>
             {stages.map((p) => (
               <article key={p.name} className={`${styles.card} ${p.featured ? styles.featured : ''}`}>
-                {p.featured && <img className={styles.cardBg} src="/images/pricing-pro.png" alt="" loading="lazy" />}
+                {p.featured && <img className={styles.cardBg} src="/images/pricing-pro.jpg" alt="" loading="lazy" />}
                 <h3 className={`t-h4 ${styles.planName}`}>{p.name}</h3>
                 <div className={styles.price}>
                   <p className={`t-h3 ${styles.amount}`}>{p.value[view]}</p>

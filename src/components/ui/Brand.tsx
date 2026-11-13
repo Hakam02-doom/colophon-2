@@ -23,8 +23,8 @@ export function BrandWordmark({ className }: { className?: string }) {
     <svg className={className} viewBox="0 0 1240 347" preserveAspectRatio="none" aria-hidden="true">
       <defs>
         <linearGradient id="wordmark-fill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#eae8e0" />
-          <stop offset="1" stopColor="#e5e3d9" />
+          <stop offset="0" stopColor="#ebebeb" />
+          <stop offset="1" stopColor="#e2e2e2" />
         </linearGradient>
       </defs>
       <text
