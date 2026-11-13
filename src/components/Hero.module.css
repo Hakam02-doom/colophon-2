@@ -26,7 +26,8 @@
   width: max(calc(100% - 409px), calc(100% / 1.49));
   height: 526px;
   transform: translate(-50%, -50%) scale(var(--zoom, 1.5));
-  background: url('/images/hero.jpg') center / 100% 100% no-repeat;
+  /* cover keeps the painting's proportions in every box shape */
+  background: url('/images/hero.jpg') 55% center / cover no-repeat;
   will-change: transform;
 }
 .overlay {
